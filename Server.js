@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 require('dotenv').config()
 const userRoutes = require('./routes/api/User')
+const taskRoutes = require('./routes/api/Task')
 const mongoose = require('mongoose')
 const passport = require('passport')
 
@@ -33,6 +34,7 @@ app.use(passport.initialize())
 require('./config/Passport')(passport)
 
 app.use( '/api/users', userRoutes)
+app.use('/api/tasks', taskRoutes)
 
 app.use((err, req, res, next) => {
     console.log(err);

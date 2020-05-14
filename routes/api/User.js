@@ -64,16 +64,16 @@ router.post("/login", (req, res) => {
       //check password
       bcrypt.compare(password, user.password).then((isMatch) => {
         if (isMatch) {
-          // return res.status(200).json(user);
           const payload = {
             id: user.id,
             userName: user.userName,
           };
-          jwt.sign(payload, process.env.secret, (err, token) => {
+          jwt.sign(payload, process.env.secret,  {
+            expiresIn: 31556926 // 1 year in seconds
+          }, (err, token) => {
             if (err) throw err;
             res.status(200).json({
-              user,
-              Authorization : "Bearer " + token,
+              token: "Bearer " + token
             });
           });
         } else {

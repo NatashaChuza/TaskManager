@@ -1,3 +1,13 @@
 export const GET_ERRORS = "GET_ERRORS";
 export const USER_LOADING = "USER_LOADING";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const SET_TASKS = "GET_TASKS"
+export const CREATE_TASK = "CREATE_TASK"
+export const DELETE_TASK = "DELETE_TASK"
+export const UPDATE_TASK = "UPDATE_TASK"
+export const GET_CURRENT_TASK = "GET_CURRENT_TASK"
+export const SET_CURRENT_TASK = "SET_CURRENT_TASK"
+export const START_TASK = "START_TASK"
+export const COMPLETE_TASK = "COMPLETE_TASK"
+export const SUCCESSFUL_REGISTER = "SUCCESSFUL_REGISTER"
+export const GO_TO_LOGIN = "GO_TO_LOGIN"

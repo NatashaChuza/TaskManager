@@ -1,0 +1,17 @@
+.modalContainer{
+    height:180px;
+    width:270px;
+    border: 1px solid #818181 ;
+    margin:10px;
+    padding:30px
+}
+
+.modalRow{
+  height: 50px;
+}
+
+.task{
+  background-color: #818181;
+  height: 50px;
+  width:110px
+}

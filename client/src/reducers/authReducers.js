@@ -1,6 +1,8 @@
 import {
     SET_CURRENT_USER,
-    USER_LOADING
+    USER_LOADING,
+    SUCCESSFUL_REGISTER,
+    GO_TO_LOGIN
   } from "../actions/types";
 
   const isEmpty = require("is-empty");
@@ -8,7 +10,8 @@ import {
   const initialState = {
     isAuthenticated: false,
     user: {},
-    loading: false
+    loading: false,
+    newUser: true
   };
 
   export default function( state= initialState, action){
@@ -23,6 +26,16 @@ import {
               return{
                   ...state,
                   loading: true
+              }
+          case SUCCESSFUL_REGISTER:
+              return{
+                  ...state,
+                  newUser: false
+              }
+          case GO_TO_LOGIN:
+              return{
+                  ...state,
+                  newUser: false
               }
           default:
               return state
