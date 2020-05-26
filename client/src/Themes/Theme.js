@@ -2,8 +2,9 @@ import React from 'react';
 import styled, { keyframes} from 'styled-components';
 import theme from 'styled-theming';
 import { MdHome } from "react-icons/md";
-import { MdAssignment } from "react-icons/md";
-import { MdInput } from "react-icons/md";
+import { MdAssignment, MdInput, MdHelp, MdBrightness3, MdBrightnessHigh, MdDeleteForever, MdDoneAll, MdClear, MdModeEdit} from "react-icons/md";
+import { FaTasks } from "react-icons/fa";
+
 
 const backgroundBackgroundColor = theme('mode', {
   light: '#fff',
@@ -30,8 +31,8 @@ const iconColor = theme('mode',{
 })
 
 const navbarColor = theme('mode',{
-  light:'#FBB047',
-  dark:'#F5631A'
+  light: '#5F7D9A',
+  dark: '#007575'
 })
 
 
@@ -76,8 +77,18 @@ const rectangleColor = theme('mode', {
 });
 
 const buttonColor = theme('mode', {
-  light: '#E47D80',
+  light: '#595959',
   dark: '#F5631A',
+});
+
+const widgetColor = theme('mode', {
+  light: '#FBB047',
+  dark: '#9DA993'
+});
+
+const componentBackgroundColor = theme('mode', {
+  light: '#e4d9e9',
+  dark: '#9DA993'
 });
 
 const LoginButtonColor = theme('mode', {
@@ -96,6 +107,11 @@ const cardWidth = theme('mode',{
 
 const card1Color = theme('mode',{
   light: '#FBB047',
+  dark: '#C85250'
+})
+
+const  dashboardIconColor= theme('mode',{
+  light: '#5F7D9A',
   dark: '#C85250'
 })
 
@@ -153,6 +169,48 @@ color: ${iconColor};
 font-size:22px;
 margin-right:38px
 `
+export const CustomHelpIcon = styled(MdHelp)`
+color: ${dashboardIconColor};
+font-size:22px;
+margin:0
+`
+export const CustomMoonIcon = styled(MdBrightness3)`
+color: ${dashboardIconColor};
+font-size:22px;
+margin:0
+`
+export const CustomSunIcon = styled(MdBrightnessHigh)`
+color: ${dashboardIconColor};
+font-size:22px;
+margin:0
+`
+export const CustomEditIcon = styled(MdModeEdit)`
+color: ${dashboardIconColor};
+font-size:22px;
+margin:0
+`
+export const CustomClearIcon = styled(MdClear)`
+color: ${dashboardIconColor};
+font-size:22px;
+position: absolute;
+left:10%;
+top:6%
+`
+export const StartTaskIcon = styled(FaTasks)`
+color: ${dashboardIconColor};
+font-size:22px;
+margin:0
+`
+export const DeleteIcon = styled(MdDeleteForever)`
+color: ${dashboardIconColor};
+font-size:22px;
+margin:0
+`
+export const CompleteTaskIcon = styled(MdDoneAll)`
+color: ${dashboardIconColor};
+font-size:22px;
+margin:0
+`
 
 export const Background = styled.div`
   background-color: ${backgroundBackgroundColor};
@@ -170,7 +228,7 @@ export const LandingBackground = styled.div`
 `;
 
 
-export const Text = styled.div`
+export const Text = styled.p`
   font-size: ${fontSize};
   padding: ${fontPadding};
   margin: ${fontMargin};
@@ -391,7 +449,7 @@ flex:3
 `
 export const TaskmanagerLogo = styled.p`
 font-size:30px;
-color:${fontColor};
+color:#fff;
 `
 export const DivFlex1 = styled.div`
  display: flex;
@@ -399,4 +457,66 @@ export const DivFlex1 = styled.div`
  align-items:center;
  padding-left:22px;
  padding-right:20px;
+`
+export const DashboardBackground = styled.div`
+background-color:${navbarColor};
+`
+export const ComponentBackground = styled.div`
+background-color: ${backgroundBackgroundColor};
+height: 100%;
+border-radius: 30px 0 0 30px;
+`
+export const WidgetContainer = styled.div`
+background-color: ${widgetColor};
+border-radius:20px
+`
+export const HomeWelcome = styled.p`
+font-size:30px;
+color: #fff;
+margin:0
+`
+export const TaskTitle = styled.p`
+font-size:25px;
+color: #fff;
+margin:0;
+margin-top:2%;
+margin-left:5%
+`
+export const Tasktext = styled.div`
+  font-size: ${fontSize};
+  padding: ${fontPadding};
+  margin: ${fontMargin};
+  color: #fff
+`;
+export const ButtonGeneral = styled.button`
+outline:0;
+border:0;
+background-color:${buttonColor};
+box-shadow: 1px 1px 5px -1px #000;
+&:hover{
+  cursor:pointer
+}
+`
+export const Tasktitle = styled.div`
+  font-size: 30px;
+  padding: ${fontPadding};
+  margin: ${fontMargin};
+  color: #595959
+`;
+
+export const FormContainer = styled.div`
+ width: 25vw;
+ height:65vh;
+ background-color: #fff;
+ border:1px solid grey;
+ position: absolute;
+ top:15%;
+ border-radius:30px
+`
+export const DescriptionBox = styled.div`
+ width: 20vw;
+ height:25vh;
+ background-color: #fff;
+ border:1px solid grey;
+ border-radius:10px
 `

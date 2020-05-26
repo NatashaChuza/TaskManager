@@ -56,7 +56,6 @@ export const deleteTask = (id, history) => (dispatch) => {
         payload: id,
       });
     })
-    .then((res) => history.push("/dashboard"))
     .catch((err) => console.log(err));
 };
 

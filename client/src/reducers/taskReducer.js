@@ -40,9 +40,10 @@ export default function (state = initialState, action) {
                 ...state,
                 tasks: state.tasks.concat(action.payload)
             }
-        )
+        );
     case UPDATE_TASK:
-        const taskIndex = state.tasks.findIndex( el => el.id === action.payload.id)
+    
+        let taskIndex = state.tasks.findIndex(task => task.id === action.payload.id)
         const newTasks = [...state.tasks]
         newTasks[taskIndex] = action.payload
         return Object.assign(
@@ -62,8 +63,8 @@ export default function (state = initialState, action) {
                 ...state,
                 task: newTasksComplete
             }
-        )
-        case START_TASK:
+        );
+    case START_TASK:
           const startIndex = state.tasks.findIndex( el => el.id === action.payload.id)
             const newTasksStart = [...state.tasks]
             newTasksStart[startIndex].status = "in progress"
@@ -73,7 +74,7 @@ export default function (state = initialState, action) {
                     ...state,
                     task: newTasksStart
                 }
-            )
+            );
     default: 
        return state
   }

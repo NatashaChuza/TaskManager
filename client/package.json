@@ -17,12 +17,14 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "react-spinners-kit": "^1.9.1",
+    "recharts": "^1.8.5",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.0",
     "styled-components.macro": "^1.0.0",
     "styled-theming": "^2.2.0",
-    "validator": "^13.0.0"
+    "validator": "^13.0.0",
+    "victory": "^34.3.5"
   },
   "scripts": {
     "start": "react-scripts start",

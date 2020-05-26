@@ -6,7 +6,7 @@ import { setTasks, createNewTask } from "../../actions/taskActions";
 import Task from "./Task";
 import Modal from "../Modal";
 import { CircleSpinner } from "react-spinners-kit";
-import {Background} from '../../Themes/Theme'
+import {Background, DashboardBackground} from '../../Themes/Theme'
 import {Consumer} from '../../Themes/ThemeProvider'
 import Navbar from '../Navbar.js'
 import Home from '../Home'
@@ -67,10 +67,12 @@ static contextType = Consumer
         <Background>
           <div className="dashboard-container">
              <Navbar/>
+             <DashboardBackground>
              <Switch>
              <Route path="/dashboard/home" component={Home} />
               <Route path="/dashboard/tasks" component={Tasks} />
              </Switch>
+             </DashboardBackground>      
           </div>
           {/* <button onClick={()=>{ this.context.toggle()}}>change theme</button>
         <h4>

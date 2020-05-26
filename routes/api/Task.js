@@ -73,8 +73,9 @@ router.patch("/update", (req, res) => {
   };
   Task.findByIdAndUpdate(
     { _id: req.body.id },
-    { $set: updatedTask },
-    { new: true }
+    { name: req.body.name ,
+      description: req.body.description
+    },
   )
     .then((resp) => res.status(200).json(updatedTask))
     .catch((err) => console.log(err));
@@ -101,7 +102,7 @@ router.patch(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Task.findByIdAndUpdate({ _id: req.params.id }, { status: "in progress" })
-      .then((res) => res.status(200))
+      .then(() => res.status(200))
       .catch((err) => console.log(err));
   }
 );
@@ -114,7 +115,7 @@ router.patch(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Task.findByIdAndUpdate({ _id: req.params.id }, { status: "done" })
-      .then((res) => res.status(200))
+      .then(() => res.status(200))
       .catch((err) => console.log(err));
   }
 );
