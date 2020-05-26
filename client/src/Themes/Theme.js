@@ -8,7 +8,7 @@ import { FaTasks } from "react-icons/fa";
 
 const backgroundBackgroundColor = theme('mode', {
   light: '#fff',
-  dark: '#1F252A',
+  dark: '#090A0E',
 });
 
 const backgroundHeight = theme('mode',{
@@ -24,17 +24,26 @@ const fontColor = theme('mode',{
   light:"#000",
   dark:'#fff'
 })
+const textColor = theme('mode',{
+  light:"#fff",
+  dark:'#fff'
+})
 
 const iconColor = theme('mode',{
   light:"#fff",
-  dark:'#F5631A'
+  dark:'#FF2511'
 })
 
 const navbarColor = theme('mode',{
   light: '#5F7D9A',
-  dark: '#007575'
+  dark: '#0C0C1E'
+
 })
 
+const logoColor = theme('mode',{
+  light: '#fff',
+  dark: '#fff'
+})
 
 const fontPadding = theme('mode',{
   light:0,
@@ -47,23 +56,23 @@ const fontMargin = theme('mode',{
 })
 
 const fontSize = theme('mode',{
-  light:'20px',
-  dark:'20px'
+  light:'19px',
+  dark:'19px'
 })
 
 const cardBackground =theme('mode',{
   light:'#fff',
-  dark:'#1F252A'
+  dark:'#090A0E'
 })
 
 const triangleBigColor =theme('mode',{
   light:'#fff',
-  dark:'#1F252A'
+  dark:'#090A0E'
 })
 
 const triangleSmallColor =theme('mode',{
   light:'#fff',
-  dark:'#1F252A'
+  dark:'#090A0E'
 })
 
 const cardHeight = theme('mode',{
@@ -83,12 +92,13 @@ const buttonColor = theme('mode', {
 
 const widgetColor = theme('mode', {
   light: '#FBB047',
-  dark: '#9DA993'
+  dark: '#0C0C1E'
 });
 
+
 const componentBackgroundColor = theme('mode', {
-  light: '#e4d9e9',
-  dark: '#9DA993'
+  light: '#fff',
+  dark: "#090A0E"
 });
 
 const LoginButtonColor = theme('mode', {
@@ -112,7 +122,7 @@ const card1Color = theme('mode',{
 
 const  dashboardIconColor= theme('mode',{
   light: '#5F7D9A',
-  dark: '#C85250'
+  dark: '#FF2511'
 })
 
 const card2Color = theme('mode',{
@@ -128,7 +138,6 @@ const cardColor = theme('mode',{
   light: '#595959',
   dark: '#9DA993'
 })
-
 const rotate = keyframes`
   to {
     transform: translate(0 , -2vh)
@@ -152,8 +161,6 @@ const circle = keyframes`
     width:0vw
   }
 `;
-
-
 export const CustomHomeIcon = styled(MdHome)`
 color: ${iconColor};
 font-size:50px;
@@ -211,13 +218,11 @@ color: ${dashboardIconColor};
 font-size:22px;
 margin:0
 `
-
 export const Background = styled.div`
   background-color: ${backgroundBackgroundColor};
   height: ${backgroundHeight};
   width: ${backgroundWidth}
 `;
-
 export const LandingBackground = styled.div`
   background-color: ${backgroundBackgroundColor};
   height: ${backgroundHeight};
@@ -226,22 +231,19 @@ export const LandingBackground = styled.div`
   justify-content: center;
   align-items:center
 `;
-
-
 export const Text = styled.p`
   font-size: ${fontSize};
   padding: ${fontPadding};
   margin: ${fontMargin};
   color: ${fontColor}
 `;
-
 export const NavbarText = styled.div`
   font-size: ${fontSize};
   padding: ${fontPadding};
   margin: ${fontMargin};
-  color: ${iconColor}
+  color: ${textColor};
+  font-family: 'Varela Round', sans-serif;
 `;
-
 export const Card = styled.div`
   background-color: ${cardBackground};
   height: ${cardHeight};
@@ -251,7 +253,6 @@ export const Card = styled.div`
   overflow:hidden;
   z-index:3
 `;
-
 export const Triangle = styled.div`
  height:50vh;
 width:51vw;
@@ -364,7 +365,6 @@ background-color:transparent;
   cursor:pointer
 }
  `
-
  export const Popup = styled.div`
  background-color: ${cardBackground};
  height: 70vh;
@@ -376,7 +376,6 @@ background-color:transparent;
  border-radius:30px;
  box-shadow: 1px 1px 5px -1px #000;
 `;
-
 export const Input = styled.input`
    height: 6vh;
    width:25vw;
@@ -448,8 +447,8 @@ display:flex;
 flex:3
 `
 export const TaskmanagerLogo = styled.p`
-font-size:30px;
-color:#fff;
+font-size:27px;
+color:${logoColor};
 `
 export const DivFlex1 = styled.div`
  display: flex;
@@ -462,7 +461,7 @@ export const DashboardBackground = styled.div`
 background-color:${navbarColor};
 `
 export const ComponentBackground = styled.div`
-background-color: ${backgroundBackgroundColor};
+background-color: ${componentBackgroundColor};
 height: 100%;
 border-radius: 30px 0 0 30px;
 `
@@ -472,21 +471,23 @@ border-radius:20px
 `
 export const HomeWelcome = styled.p`
 font-size:30px;
-color: #fff;
+color: ${textColor};
 margin:0
 `
 export const TaskTitle = styled.p`
 font-size:25px;
-color: #fff;
+color: ${textColor};
 margin:0;
 margin-top:2%;
-margin-left:5%
+margin-left:5%;
+font-family: 'Varela Round', sans-serif;
 `
 export const Tasktext = styled.div`
   font-size: ${fontSize};
   padding: ${fontPadding};
   margin: ${fontMargin};
-  color: #fff
+  color: ${textColor};
+  font-family: 'Varela Round', sans-serif;
 `;
 export const ButtonGeneral = styled.button`
 outline:0;
@@ -498,12 +499,11 @@ box-shadow: 1px 1px 5px -1px #000;
 }
 `
 export const Tasktitle = styled.div`
-  font-size: 30px;
+  font-size: 28px;
   padding: ${fontPadding};
   margin: ${fontMargin};
-  color: #595959
+  color: #595959;
 `;
-
 export const FormContainer = styled.div`
  width: 25vw;
  height:65vh;
