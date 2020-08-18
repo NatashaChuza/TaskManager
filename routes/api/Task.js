@@ -102,7 +102,9 @@ router.patch(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Task.findByIdAndUpdate({ _id: req.params.id }, { status: "in progress" })
-      .then(() => res.status(200))
+      .then(( resp) => {
+        res.status(200).json(resp)
+      })
       .catch((err) => console.log(err));
   }
 );
@@ -115,7 +117,7 @@ router.patch(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Task.findByIdAndUpdate({ _id: req.params.id }, { status: "done" })
-      .then(() => res.status(200))
+      .then((resp) => res.status(200).json(resp))
       .catch((err) => console.log(err));
   }
 );

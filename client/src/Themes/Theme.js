@@ -24,8 +24,29 @@ const fontColor = theme('mode',{
   light:"#000",
   dark:'#fff'
 })
+
+const tasktitleColor = theme('mode',{
+  light:"#595959",
+  dark:'#fff'
+})
+
+const modalColor = theme('mode',{
+  light:"#fff",
+  dark:'#090A0E'
+})
+
+const borderColor = theme('mode',{
+  light:"#5F7D9A",
+  dark:'#fff'
+})
+
 const textColor = theme('mode',{
   light:"#fff",
+  dark:'#fff'
+})
+
+const chartColor = theme('mode',{
+  light:"#5F7D9A",
   dark:'#fff'
 })
 
@@ -82,17 +103,22 @@ const cardHeight = theme('mode',{
 
 const rectangleColor = theme('mode', {
   light: '#fff',
-  dark: '#1F252A',
+  dark: '#090A0E',
 });
 
 const buttonColor = theme('mode', {
   light: '#595959',
-  dark: '#F5631A',
+  dark: '#FF2511',
 });
 
 const widgetColor = theme('mode', {
   light: '#FBB047',
   dark: '#0C0C1E'
+});
+
+const taskWidgetColor = theme('mode', {
+  light: '#5F7D9A',
+  dark: '#FF2511'
 });
 
 
@@ -117,7 +143,7 @@ const cardWidth = theme('mode',{
 
 const card1Color = theme('mode',{
   light: '#FBB047',
-  dark: '#C85250'
+  dark: '#595959'
 })
 
 const  dashboardIconColor= theme('mode',{
@@ -126,17 +152,17 @@ const  dashboardIconColor= theme('mode',{
 })
 
 const card2Color = theme('mode',{
-  light: '#5F7D9A',
+  light: '#E47D80',
   dark: '#007575'
 })
 const card3Color = theme('mode',{   
-  light: '#E47D80',
-  dark: '#F5631A'
+  light: '#5F7D9A',
+  dark: "#0C0C1E"
 })
 
 const cardColor = theme('mode',{
   light: '#595959',
-  dark: '#9DA993'
+  dark: '#FF2511'
 })
 const rotate = keyframes`
   to {
@@ -163,12 +189,12 @@ const circle = keyframes`
 `;
 export const CustomHomeIcon = styled(MdHome)`
 color: ${iconColor};
-font-size:50px;
+font-size:40px;
 margin-right:35px
 `
 export const CustomTaskIcon = styled(MdAssignment)`
 color: ${iconColor};
-font-size:50px;
+font-size:40px;
 margin-right:35px
 `
 export const CustomLogoutIcon = styled(MdInput)`
@@ -238,7 +264,7 @@ export const Text = styled.p`
   color: ${fontColor}
 `;
 export const NavbarText = styled.div`
-  font-size: ${fontSize};
+  font-size: 17px;
   padding: ${fontPadding};
   margin: ${fontMargin};
   color: ${textColor};
@@ -342,12 +368,12 @@ animation: ${tBottom} 5s 5s forwards
 `
 export const WelcomeCover = styled.div`
 background-color:${cardBackground};
-width: 29vw;
+width: 36vw;
 z-index:41;
 position:absolute;
 height:10vh;
-top:15%;
-right:35.5%;
+top:14%;
+right:33.7%;
 animation: ${circle} 5s forwards
 `
 export const ModeButton = styled.button`
@@ -380,7 +406,7 @@ export const Input = styled.input`
    height: 6vh;
    width:25vw;
    border-radius:30px;
-   border:1px  solid ${LoginBackgroundColor};
+   border:1px solid ${borderColor};
    background-color: ${cardBackground};
    outline:none;
    padding-left:20px;
@@ -396,7 +422,7 @@ font-size:30px;
 color:${fontColor};
 z-index:40;
 position:absolute;
-top:-4%;
+top:-1%;
 left:35%
 `
 export const LoginButton = styled.button`
@@ -447,7 +473,7 @@ display:flex;
 flex:3
 `
 export const TaskmanagerLogo = styled.p`
-font-size:27px;
+font-size:26px;
 color:${logoColor};
 `
 export const DivFlex1 = styled.div`
@@ -470,7 +496,7 @@ background-color: ${widgetColor};
 border-radius:20px
 `
 export const HomeWelcome = styled.p`
-font-size:30px;
+font-size:26px;
 color: ${textColor};
 margin:0
 `
@@ -502,12 +528,12 @@ export const Tasktitle = styled.div`
   font-size: 28px;
   padding: ${fontPadding};
   margin: ${fontMargin};
-  color: #595959;
+  color: ${tasktitleColor};
 `;
 export const FormContainer = styled.div`
  width: 25vw;
  height:65vh;
- background-color: #fff;
+ background-color: ${modalColor};
  border:1px solid grey;
  position: absolute;
  top:15%;
@@ -516,7 +542,37 @@ export const FormContainer = styled.div`
 export const DescriptionBox = styled.div`
  width: 20vw;
  height:25vh;
- background-color: #fff;
+ background-color: ${modalColor};
  border:1px solid grey;
  border-radius:10px
 `
+export const Charttext = styled.div`
+  font-size: ${fontSize};
+  padding: ${fontPadding};
+  margin: ${fontMargin};
+  color: ${chartColor};
+  font-family: 'Varela Round', sans-serif;
+`;
+export const MobileTop = styled.div`
+background-color:${widgetColor};
+`
+export const MobileMiddle = styled.div`
+background-color:${componentBackgroundColor};
+border-radius: 20px 20px 0 0;
+margin-top:-3%;
+`
+export const ChartContainer = styled.div`{
+  background-color: ${navbarColor};
+  border-radius:20px;
+  width:65vw;
+  margin-left:15%
+  }`
+  export const MobileTasks = styled.div`
+  background-color:${componentBackgroundColor};
+  `
+  export const MobileTopTasks = styled.div`
+background-color:${taskWidgetColor};
+`
+export const BackgroundMobile = styled.div`
+  background-color: ${backgroundBackgroundColor};
+`;

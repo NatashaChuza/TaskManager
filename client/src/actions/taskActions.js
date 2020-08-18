@@ -10,6 +10,7 @@ import {
   COMPLETE_TASK,
   START_TASK,
   GET_CURRENT_TASK,
+  CLEAR_CURRENT_TASK
 } from "./types";
 import { bindActionCreators } from "redux";
 
@@ -38,9 +39,12 @@ export const updateTask = (userData) => (dispatch) => {
   axios
     .patch("/api/tasks/update", userData)
     .then((res) => {
+      const task = {...res.data,
+                    owner: userData.owner,
+                     id: userData.id}
       dispatch({
         type: UPDATE_TASK,
-        payload: res.data,
+        payload: task,
       });
     })
     .catch((err) => console.log(err));
@@ -62,7 +66,6 @@ export const deleteTask = (id, history) => (dispatch) => {
 //complete task
 export const completeTask = (id) => (dispatch) => {
   axios.patch(`/api/tasks/complete/${id}`).then((res) => {
-      console.log("reaching")
     dispatch({
       type: COMPLETE_TASK,
       payload: id,
@@ -88,4 +91,10 @@ export const getTask = (id) => (dispatch)=>{
             payload: res.data
         })
     })
+}
+
+export const clearCurrentTask = () => {
+      return{
+          type: CLEAR_CURRENT_TASK
+      }
 }

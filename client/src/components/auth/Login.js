@@ -22,13 +22,13 @@ class Login extends React.Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/dashboard/home");
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard"); // push user to dashboard when they login
+      this.props.history.push("/dashboard/home"); // push user to dashboard when they login
     }
     if (nextProps.errors) {
       this.setState({
@@ -49,11 +49,11 @@ class Login extends React.Component {
       password: this.state.password,
     };
     this.props.loginUser(userData);
-    console.log(userData);
   };
 
   render() {
     const { errors } = this.state;
+    console.log(errors)
     return (
       <div>
         <LoginText>Login</LoginText>
@@ -80,6 +80,7 @@ class Login extends React.Component {
               error={errors.email}
               id="email"
               type="email"
+              className="input-box-mobile"
             />
 
             <span className="red-text">
@@ -93,9 +94,10 @@ class Login extends React.Component {
               error={errors.password}
               id="password"
               type="password"
+              className="input-box-mobile"
             />
           </div>
-          <LoginButton type="submit">
+          <LoginButton type="submit" className="login-btn-mobile">
             <ButtonText>Login</ButtonText>
           </LoginButton>
         </form>

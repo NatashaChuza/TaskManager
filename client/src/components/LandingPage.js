@@ -36,20 +36,17 @@ class LandingPage extends React.Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/dashboard/home");
     }
   }
   static contextType = Consumer;
   render() {
     return (
       <LandingBackground>
-        {/* <Text>Welcome to task manager, New Here?</Text>
-     <Link to="/register">Register </Link>
-     <Link to="/login">Login</Link> */}
-        <WelcomeCover />
-    <Text>{this.props.auth.newUser}</Text>
-        <WelcomeText>Welcome To Task Manager</WelcomeText>
-       {this.state.modalVisible ?<Popup>
+        <WelcomeCover className="no-mobile"/>
+    {/* <Text>{this.props.auth.newUser}</Text> */}
+        <WelcomeText className="no-mobile">Welcome To Task Manager</WelcomeText>
+       {this.state.modalVisible ?<Popup className="popup-mobile">
           {this.props.auth.newUser ? (
             <div>
               {" "}
@@ -85,14 +82,14 @@ class LandingPage extends React.Component {
             />
           ) : (
             <MdBrightnessHigh
-              style={{ color: "#F5631A", fontSize: "35px" }}
+              style={{ color: "#FF2511", fontSize: "35px" }}
               onClick={() => {
                 this.context.toggle();
               }}
             />
           )}
         </ModeButton>
-        <Button>
+        <Button className="button-mobile border-radius-30">
           <ButtonText onClick={()=>{
             this.setState({
               modalVisible: !this.state.modalVisible
@@ -100,8 +97,8 @@ class LandingPage extends React.Component {
           }}>Get Started!</ButtonText>
         </Button>
         <Card>
-          <Triangle />
-          <TriangleSmall />
+          <Triangle className="no-mobile"/>
+          <TriangleSmall className="no-mobile"/>
           <div
             style={{
               display: "flex",
@@ -112,8 +109,9 @@ class LandingPage extends React.Component {
               left: "15%",
               top: "-50%",
             }}
+            className="no-mobile"
           >
-            <SmallCard>
+            <SmallCard className="no-mobile">
               <CardRectangle />
               <div
                 style={{
@@ -126,7 +124,7 @@ class LandingPage extends React.Component {
                 <CardText>Organize Your Tasks</CardText>
               </div>
             </SmallCard>
-            <SmallCard1>
+            <SmallCard1 className="no-mobile">
               <CardRectangle />
               <div
                 style={{
@@ -139,7 +137,7 @@ class LandingPage extends React.Component {
                 <CardText>Stay On Track</CardText>
               </div>
             </SmallCard1>
-            <SmallCard2>
+            <SmallCard2 className="no-mobile">
               <CardRectangle />
               <div
                 style={{
@@ -152,7 +150,7 @@ class LandingPage extends React.Component {
                 <CardText>Set Goals</CardText>
               </div>
             </SmallCard2>
-            <SmallCard3>
+            <SmallCard3 className="no-mobile">
               <CardRectangle />
               <div
                 style={{
@@ -163,6 +161,63 @@ class LandingPage extends React.Component {
                 }}
               >
                 <CardText>Reach Your Milestones</CardText>
+              </div>
+            </SmallCard3>
+          </div>
+          <div className="landing-top-mobile no-desktop">
+        <WelcomeText className="welcome-text-mobile">Welcome To Task Manager</WelcomeText>
+          </div>
+          <div className="landing-mobile">
+          <SmallCard className="card-mobile">
+              <CardRectangle className="rectangle-mobile"/>
+              <div
+                style={{
+                  width: "20vh",
+                  position: "relative",
+                  top: "35%",
+                  left: "15%",
+                }}
+              >
+                <CardText className="card-text-mobile">Organize Your Tasks</CardText>
+              </div>
+            </SmallCard>
+            <SmallCard1 className="card-mobile">
+              <CardRectangle className="rectangle-mobile"/>
+              <div
+                style={{
+                  width: "25vh",
+                  position: "relative",
+                  top: "35%",
+                  left: "15%",
+                }}
+              >
+                <CardText className="card-text-mobile">Stay On Track</CardText>
+              </div>
+            </SmallCard1>
+            <SmallCard2 className="card-mobile">
+              <CardRectangle className="rectangle-mobile"/>
+              <div
+                style={{
+                  width: "20vh",
+                  position: "relative",
+                  top: "35%",
+                  left: "15%",
+                }}
+              >
+                <CardText className="card-text-mobile">Set Goals</CardText>
+              </div>
+            </SmallCard2>
+            <SmallCard3 className="card-mobile">
+              <CardRectangle className="rectangle-mobile"/>
+              <div
+                style={{
+                  width: "20vh",
+                  position: "relative",
+                  top: "35%",
+                  left: "15%",
+                }}
+              >
+                <CardText className="card-text-mobile">Reach Your Milestones</CardText>
               </div>
             </SmallCard3>
           </div>

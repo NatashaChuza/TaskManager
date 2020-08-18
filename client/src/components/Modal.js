@@ -5,7 +5,7 @@ import "./Modal.css";
 class Modal extends React.Component {
   render() {
     return (
-        <FormContainer>
+        <FormContainer className="modal-mobile z-20">
           <button className="invisible-btn" onClick={this.props.closeModal}><CustomClearIcon/></button>
        {this.props.children}
        </FormContainer>

@@ -7,6 +7,7 @@ import {
   completeTask,
   setTasks,
   getTask,
+  clearCurrentTask
 } from "../../actions/taskActions";
 import { withRouter } from "react-router-dom";
 import {
@@ -34,13 +35,16 @@ class Task extends React.Component {
     taskStatus: "",
   };
   componentDidMount() {
+    this.props.clearCurrentTask()
     this.props.getTask(this.props.match.params.id);
-
     const { match } = this.props;
     const id = match.params.id;
     this.setState({
       taskId: id,
     });
+  }
+  componentWillUnmount(){
+    this.props.clearCurrentTask()
   }
   onUpdateTask = () => {
     this.setState({
@@ -56,14 +60,12 @@ class Task extends React.Component {
   };
   onDelete = () => {
     this.props.deleteTask(this.props.match.params.id, this.props.history);
-    alert("deleted");
   };
   onStart = () => {
     this.setState({
       taskStatus: "in progress",
     });
     this.props.startTask(this.props.match.params.id);
-    alert("task status changed to in progress");
   };
 
   onComplete = () => {
@@ -71,7 +73,6 @@ class Task extends React.Component {
       taskStatus: "done",
     });
     this.props.completeTask(this.props.match.params.id);
-    alert("task status changed to done");
   };
 
   handleSubmit = (e) => {
@@ -82,15 +83,18 @@ class Task extends React.Component {
         : this.props.currentTask.name,
       description: !isEmpty(this.state.description)
         ? this.state.description
-        : this.props.currentTask.description,
-      id: this.state.taskId
+        : this.props.currentTask.currentTask.description,
+      id: this.props.currentTask.currentTask._id,
+      owner: this.props.auth.user.id,
+      status: this.props.currentTask.currentTask.status,
     };
     this.props.updateTask(task);
+
   };
   render() {
     const { currentTask } = this.props.currentTask;
     return (
-      <div className="height-100 border-radius-30 flex column">
+      <div className="height-100 border-radius-30 flex column task-mobile">
         <div className="flex1 flex center-align center-justify">
           <Text className="capital">
             {" "}
@@ -98,7 +102,7 @@ class Task extends React.Component {
           </Text>
         </div>
         <div className="flex2 flex center-align center-justify ">
-          <DescriptionBox className="flex center-align padding-4">
+          <DescriptionBox className="flex center-align padding-4 desc-mobile">
             <Text className="capital">
               {this.state.description === ""
                 ? currentTask.description
@@ -145,7 +149,7 @@ class Task extends React.Component {
               <CustomClearIcon />
             </button>
             <form>
-              <div className="flex column center-align height-60-vh space-evenly ">
+              <div className="flex column center-align height-60-vh space-evenly">
                 <Input
                   placeholder="Task Name"
                   onChange={this.onInput}
@@ -163,7 +167,7 @@ class Task extends React.Component {
                 <LoginButton
                   type="submit"
                   onClick={this.handleSubmit}
-                  className="width-80 left-10"
+                  className="width-80 left-10 border-radius-30"
                 >
                   <ButtonText>Submit</ButtonText>
                 </LoginButton>
@@ -177,6 +181,7 @@ class Task extends React.Component {
 }
 const mapStateToProps = (state) => ({
   currentTask: state.tasks,
+  auth: state.auth
 });
 export default connect(mapStateToProps, {
   updateTask,
@@ -185,4 +190,5 @@ export default connect(mapStateToProps, {
   completeTask,
   setTasks,
   getTask,
+  clearCurrentTask
 })(withRouter(Task));

@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import classnames from "classnames";
 import {
   LoginText,
   Input,
@@ -24,7 +23,7 @@ class Register extends React.Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/dashboard/home");
     }
   }
 
@@ -54,7 +53,7 @@ class Register extends React.Component {
   render() {
     const { errors } = this.state;
     return (
-      <div>
+      <div className="red">
         <LoginText>Sign Up</LoginText>
         <form onSubmit={this.onSubmit}>
           <div
@@ -76,6 +75,7 @@ class Register extends React.Component {
               error={errors.name}
               id="name"
               type="text"
+              className="input-box-mobile"
             />
                <span className="red-text">{errors.email}</span>
             <Input
@@ -85,6 +85,7 @@ class Register extends React.Component {
               error={errors.email}
               id="email"
               type="email"
+              className="input-box-mobile"
             />
             <span className="red-text">{errors.password}</span>
             <Input
@@ -94,6 +95,7 @@ class Register extends React.Component {
               error={errors.password}
               id="password"
               type="password"
+              className="input-box-mobile"
             />
               <span className="red-text">{errors.password2}</span>
             <Input
@@ -103,9 +105,10 @@ class Register extends React.Component {
               error={errors.password2}
               id="password2"
               type="password"
+              className="input-box-mobile"
             />
           </div>
-          <LoginButton type="submit">
+          <LoginButton type="submit" className="login-btn-mobile">
             <ButtonText>Sign Up</ButtonText>
           </LoginButton>
         </form>
