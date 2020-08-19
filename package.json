@@ -2,7 +2,7 @@
   "name": "task-manager",
   "version": "1.0.0",
   "description": "Application that lets users manage tasks",
-  "main": "Server.js",
+  "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
