@@ -5,6 +5,7 @@
         width: 100vw;
         display:grid;
         grid-template-columns: 1.5fr 8fr;
+        background-color: brown;
     }
     .nav-desktop{
         height:100vh
