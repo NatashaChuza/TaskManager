@@ -14,7 +14,7 @@ const db = process.env.DB
 
 mongoose.connect( db, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology:true
 }).then(
     ()=> console.log("successfully connected to database")
 ).catch( err => console.log(err))
