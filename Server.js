@@ -10,7 +10,7 @@ const path = require('path')
 const app = express()
 
 const port =process.env.PORT || 5000
-const db = process.env.MONGODB_URI || process.env.DB
+const db = process.env.DB
 
 mongoose.connect( db, {
     useNewUrlParser: true,
