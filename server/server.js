@@ -12,7 +12,7 @@ const app = express()
 const port =process.env.PORT || 5000
 const db = process.env.DB
 
-mongoose.connect( db, {
+mongoose.connect( "mongodb+srv://natasha:1234@fullstack-ukqsp.mongodb.net/test?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }).then(
