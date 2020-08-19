@@ -68,7 +68,7 @@ router.post("/login", (req, res) => {
             id: user.id,
             userName: user.userName,
           };
-          jwt.sign(payload, process.env.secret,  {
+          jwt.sign(payload, "mySecret",  {
             expiresIn: 31556926 // 1 year in seconds
           }, (err, token) => {
             if (err) throw err;
