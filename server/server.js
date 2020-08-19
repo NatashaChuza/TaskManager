@@ -32,7 +32,7 @@ app.use( (req,res,next)=>{
 app.use(passport.initialize())
 
 //passport config
-require('./config/Passport')(passport)
+require('../config/Passport')(passport)
 
 app.use( '/api/users', userRoutes)
 app.use('/api/tasks', taskRoutes)
