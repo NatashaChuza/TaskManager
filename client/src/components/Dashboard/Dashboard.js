@@ -66,7 +66,7 @@ static contextType = Consumer
     return (
         <Background>
           <div className="dashboard-container">
-            <div className="nav-mobile-div">
+            <div className="nav-mobile-div nav-desktop">
             <Navbar/>
             </div>
              <DashboardBackground>
